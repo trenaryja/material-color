@@ -1,0 +1,29 @@
+{
+  "name": "material-color",
+  "version": "1.0.0",
+  "description": "Materal Design color utilities",
+  "main": "material-color.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trenaryja/material-color.git"
+  },
+  "keywords": [
+    "material",
+    "color",
+    "palette",
+    "theme",
+    "design"
+  ],
+  "author": "Justin Trenary",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trenaryja/material-color/issues"
+  },
+  "homepage": "https://github.com/trenaryja/material-color#readme",
+  "dependencies": {
+    "chroma-js": "^2.1.0"
+  }
+}
