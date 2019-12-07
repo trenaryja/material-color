@@ -2,9 +2,11 @@
 	"name": "@trenaryja/material-color",
 	"version": "1.0.1",
 	"description": "Materal Design color utilities",
-	"main": "material-color.js",
+	"main": "./dist/material-color.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack",
+		"build:prod": "webpack --mode production"
 	},
 	"repository": {
 		"type": "git",
@@ -25,5 +27,9 @@
 	"homepage": "https://github.com/trenaryja/material-color#readme",
 	"dependencies": {
 		"chroma-js": "^2.1.0"
+	},
+	"devDependencies": {
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.10"
 	}
 }
