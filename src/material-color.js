@@ -1,7 +1,7 @@
 import chroma from "chroma-js";
 import materialColors from "./colors";
 
-const getClosestMaterialColors = color => {
+export const getClosestMaterialColors = color => {
 	let closestColorDelta = Infinity,
 		closestColorArray = materialColors[0],
 		closestColorIndex = -1;
@@ -23,7 +23,7 @@ const getClosestMaterialColors = color => {
 	};
 };
 
-const createPalette = color => {
+export const createPalette = color => {
 	const { closestColorArray, closestColorIndex, closestColor } = getClosestMaterialColors(color);
 	const hcl = chroma(color).hcl();
 	const closestHcl = chroma(closestColor).hcl();
@@ -46,9 +46,4 @@ const createPalette = color => {
 		lightModifier = Math.max(result.hcl()[2] - 1.7, 0);
 		return result.hex();
 	});
-};
-
-export default {
-	getClosestMaterialColors,
-	createPalette,
 };
