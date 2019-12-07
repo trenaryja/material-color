@@ -9,6 +9,7 @@ module.exports = {
 		filename: "material-color.js",
 		library: "materialColor",
 		libraryTarget: "umd",
+		libraryExport: "default",
 	},
 	externals: {
 		"chroma-js": {
