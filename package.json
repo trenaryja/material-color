@@ -1,17 +1,29 @@
 {
 	"name": "@trenaryja/material-color",
-	"version": "1.0.5",
 	"description": "Materal Design color utilities",
-	"main": "./dist/material-color.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "webpack",
-		"build:prod": "webpack --mode production"
-	},
+	"version": "1.0.6",
+	"type": "module",
+	"input": "./src/index.js",
+	"browser": "./dist/material-color.umd.js",
+	"main": "./dist/material-color.cjs.js",
+	"module": "./dist/material-color.esm.js",
+	"moduleName": "materialColor",
+	"author": "Justin Trenary",
+	"license": "MIT",
+	"homepage": "https://github.com/trenaryja/material-color#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/trenaryja/material-color.git"
 	},
+	"bugs": {
+		"url": "https://github.com/trenaryja/material-color/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist"
+	],
 	"keywords": [
 		"material",
 		"color",
@@ -19,17 +31,21 @@
 		"theme",
 		"design"
 	],
-	"author": "Justin Trenary",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/trenaryja/material-color/issues"
-	},
-	"homepage": "https://github.com/trenaryja/material-color#readme",
 	"dependencies": {
 		"chroma-js": "^2.1.0"
 	},
 	"devDependencies": {
-		"webpack": "^4.41.2",
-		"webpack-cli": "^3.3.10"
+		"@babel/cli": "^7.10.5",
+		"@babel/core": "^7.10.5",
+		"@babel/preset-env": "^7.10.4",
+		"@rollup/plugin-babel": "^5.1.0",
+		"rimraf": "^3.0.2",
+		"rollup-plugin-terser": "^6.1.0",
+		"rollup": "^2.23.0"
+	},
+	"scripts": {
+		"build": "npm run pre-build && rollup -c",
+		"clean": "rimraf dist",
+		"pre-build": "npm run clean"
 	}
 }
