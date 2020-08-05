@@ -2,12 +2,15 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-08-05
+
 ### Added
 
 -   This CHANGELOG file
 -   `palette` property for direct access to the standard [Material.io](https://material.io/design/color/the-color-system.html#color-usage-and-palettes) color palette
 -   `createColorObject` function
 -   New `createPalette` function for generating an entire palette from a color dictionary
+-   JSDoc comments
 
 ### Changed
 

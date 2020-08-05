@@ -1,7 +1,7 @@
 {
 	"name": "@trenaryja/material-color",
 	"description": "Materal Design color utilities",
-	"version": "1.0.6",
+	"version": "2.0.0",
 	"type": "module",
 	"input": "./src/index.js",
 	"browser": "./dist/material-color.umd.js",
@@ -36,16 +36,16 @@
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.10.5",
-		"@babel/core": "^7.10.5",
-		"@babel/preset-env": "^7.10.4",
+		"@babel/core": "^7.11.1",
+		"@babel/preset-env": "^7.11.0",
 		"@rollup/plugin-babel": "^5.1.0",
 		"rimraf": "^3.0.2",
-		"rollup-plugin-terser": "^6.1.0",
-		"rollup": "^2.23.0"
+		"rollup": "^2.23.0",
+		"rollup-plugin-terser": "^6.1.0"
 	},
 	"scripts": {
 		"build": "npm run pre-build && rollup -c",
-		"clean": "rimraf dist",
+		"clean": "rimraf dist docs",
 		"pre-build": "npm run clean"
 	}
 }
