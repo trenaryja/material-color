@@ -1,5 +1,6 @@
 import chroma from "chroma-js";
 import palette from "./palette";
+import deltaE from "./deltaE";
 
 export { palette };
 
@@ -19,7 +20,7 @@ export const getClosestMaterialColorValues = (color) => {
 		closestColorIndex = -1;
 	for (let i = 0; i < materialColors.length; i++) {
 		for (let j = 0; j < materialColors[i].length && 0 < closestColorDelta; j++) {
-			const delta = chroma.deltaE(color, materialColors[i][j]);
+			const delta = deltaE(color, materialColors[i][j]);
 			if (delta < closestColorDelta) {
 				closestColorDelta = delta;
 				closestColorArray = materialColors[i];

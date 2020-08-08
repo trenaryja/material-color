@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2020-08-08
+
+### Changed
+
+-   `getClosestMaterialColors` now uses the [CIEDE2000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) formula for calculating the closestDelta value. Will revert back to using [chroma-js deltaE](https://gka.github.io/chroma.js/#chroma-deltae) function when it is updated to CIEDE2000.
+
 ## [2.0.0] - 2020-08-05
 
 ### Added
