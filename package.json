@@ -1,7 +1,7 @@
 {
 	"name": "@trenaryja/material-color",
 	"description": "Materal Design color utilities",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"type": "module",
 	"input": "./src/index.js",
 	"browser": "./dist/material-color.umd.js",
@@ -44,8 +44,9 @@
 		"rollup-plugin-terser": "^6.1.0"
 	},
 	"scripts": {
-		"build": "npm run pre-build && rollup -c",
+		"build": "npm run prebuild && rollup -c",
 		"clean": "rimraf dist docs",
-		"pre-build": "npm run clean"
+		"prebuild": "npm run clean",
+		"prepublish": "npm run build"
 	}
 }

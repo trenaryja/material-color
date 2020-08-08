@@ -6,7 +6,7 @@ export { palette };
 
 /**
  * Get calculated values related to the input color based on the default material palette
- * @param {*} color - any valid {@link https://gka.github.io/chroma.js/#chroma|chromajs} color input
+ * @param {*} color - any valid {@link https://gka.github.io/chroma.js/#chroma|chroma-js} color input
  * @returns {Object} object with the following properties:
  * - `closestColorArray`: array of colors from the default material palette that contains the closest color to the input
  * - `closestColorIndex`: index of the closest color within the closest color array
@@ -38,7 +38,7 @@ export const getClosestMaterialColorValues = (color) => {
 
 /**
  * Generate an array of colors/values based on the input color
- * @param {*} color - any valid {@link https://gka.github.io/chroma.js/#chroma|chromajs} color input
+ * @param {*} color - any valid {@link https://gka.github.io/chroma.js/#chroma|chroma-js} color input
  * @returns {String[]} array containing 10 colors/values that conform to the material design standards based on the input color
  */
 export const createColorArray = (color) => {
@@ -106,7 +106,7 @@ export const createColorArray = (color) => {
 
 /**
  * Generate an object/dictionary based on the input color
- * @param {*} color - any valid {@link https://gka.github.io/chroma.js/#chroma|chromajs} color input
+ * @param {*} color - any valid {@link https://gka.github.io/chroma.js/#chroma|chroma-js} color input
  * @returns {Object} object/dictionary containing 10 colors/values that conform to the material design standards based on the input color
  */
 export const createColorObject = (color) => {
@@ -120,7 +120,7 @@ export const createColorObject = (color) => {
 
 /**
  * Generate a palette for the given colorDictionary
- * @param {*} colorDictionary - object/dictionary containing key/value pairs, where each value is a valid {@link https://gka.github.io/chroma.js/#chroma|chromajs} color input
+ * @param {*} colorDictionary - object/dictionary containing key/value pairs, where each value is a valid {@link https://gka.github.io/chroma.js/#chroma|chroma-js} color input
  * @returns {Object} palette object which contains a color object/dictionary for each key/value pair in the given colorDictionary
  */
 export const createPalette = (colorDictionary) => {
