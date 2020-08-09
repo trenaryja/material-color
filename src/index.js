@@ -42,11 +42,7 @@ export const getClosestMaterialColorValues = (color) => {
  * @returns {String[]} array containing 10 colors/values that conform to the material design standards based on the input color
  */
 export const createColorArray = (color) => {
-	const { closestColorArray, closestColorIndex, closestColor } = getClosestMaterialColorValues(color);
-	const hcl = chroma(color).hcl();
-	const closestHcl = chroma(closestColor).hcl();
-	const [hueDiff, chromaDiff, lightDiff] = hcl.map((x, i) => closestHcl[i] - x);
-	const lightTransformArray = [
+	const lightArray = [
 		2.048875457,
 		5.124792061,
 		8.751659557,
@@ -58,7 +54,7 @@ export const createColorArray = (color) => {
 		15.13738673,
 		15.09818372,
 	];
-	const chromaTransformArray = [
+	const chromaArray = [
 		1.762442714,
 		4.213532634,
 		7.395827458,
@@ -70,37 +66,26 @@ export const createColorArray = (color) => {
 		17.35916727,
 		19.88410864,
 	];
+
+	let { closestColorArray, closestColorIndex, closestColor } = getClosestMaterialColorValues(color);
+	color = chroma(color);
+	closestColor = chroma(closestColor);
+	const [h, c, l] = color.hcl();
+	const [closestH, closestC, closestL] = closestColor.hcl();
+	const mode = color.alpha() < 1 ? "rgba" : "rgb";
+	const largeChroma = 30 > chroma(closestColorArray[5]).get("hcl.c");
 	let lightModifier = 100;
 	return closestColorArray.map((x, i) => {
-		if (x === closestColor) {
-			lightModifier = Math.max(hcl[2] - 1.7, 0);
-			return chroma(color).hex();
+		if (x === closestColor.hex(mode)) {
+			lightModifier = Math.max(l - 1.7, 0);
+			return color.hex();
 		}
-		const xhcl = chroma(x).hcl();
-		const result = chroma(
-			(xhcl[0] - hueDiff + 360) % 360,
-			Math.max(
-				0,
-				30 > chroma(closestColorArray[5]).hcl()[1]
-					? xhcl[1] - chromaDiff
-					: xhcl[1] -
-							chromaDiff *
-								Math.min(chromaTransformArray[i] / chromaTransformArray[closestColorIndex], 1.25),
-			),
-			Math.min(
-				Math.max(
-					Math.min(
-						xhcl[2] - (lightTransformArray[i] / lightTransformArray[closestColorIndex]) * lightDiff,
-						lightModifier,
-					),
-					0,
-				),
-				100,
-			),
-			"hcl",
-		);
-		lightModifier = Math.max(result.hcl()[2] - 1.7, 0);
-		return result.hex();
+		let [xH, xC, xL] = chroma(x).hcl();
+		xH = (xH - (closestH - h) + 360) % 360;
+		xC = xC - (closestC - c) * (largeChroma ? 1 : Math.min(chromaArray[i] / chromaArray[closestColorIndex], 1.25));
+		xL = Math.min(xL - (lightArray[i] / lightArray[closestColorIndex]) * (closestL - l), lightModifier);
+		lightModifier = Math.max(xL - 1.7, 0);
+		return chroma(xH, xC, xL, "hcl").alpha(color.alpha()).hex(mode);
 	});
 };
 

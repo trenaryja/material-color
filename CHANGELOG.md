@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.1.0] - 2020-08-09
+
+### Changed
+
+-   Simplified `createColorArray` function to significantly increase accuracy, performance, maintainability, and readability.
+
 ## [2.0.2] - 2020-08-08
 
 ### Added
