@@ -1,8 +1,7 @@
 {
 	"name": "@trenaryja/material-color",
 	"description": "Materal Design color utilities",
-	"version": "2.1.1-0",
-	"type": "module",
+	"version": "3.0.0-1",
 	"main": "dist/material-color.cjs.js",
 	"module": "dist/material-color.esm.js",
 	"browser": "dist/material-color.umd.js",
