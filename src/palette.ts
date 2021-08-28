@@ -1,4 +1,4 @@
-export default {
+const palette: OfficialMaterialPalette = {
 	red: {
 		"50": "#ffebee",
 		"100": "#ffcdd2",
@@ -228,3 +228,5 @@ export default {
 		"900": "#263238",
 	},
 };
+
+export default palette;

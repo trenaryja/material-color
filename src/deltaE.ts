@@ -1,7 +1,7 @@
 import chroma from "chroma-js";
 const { abs, atan2, cos, exp, sin, sqrt, PI } = Math;
 
-export default (x1, x2, L = 1, C = 1, H = 1) => {
+export default (x1: Color, x2: Color, L = 1, C = 1, H = 1) => {
 	const [l1, a1, b1] = chroma(x1).lab();
 	const [l2, a2, b2] = chroma(x2).lab();
 	var lBarPrime = 0.5 * (l1 + l2);
